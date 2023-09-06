@@ -174,3 +174,18 @@ console.log(tabUser);
 console.log(tabUser[2]);
 //TODO: En passant par tabUser on veut afficher en console uniquement la 2ème passion
 console.log(tabUser[2][1]);
+// Nombre de cases des tableaux
+console.log(tabUser.length);
+console.log(tabUser[2].length);
+
+//EXO PUSH
+//TODO: Créer deux variables leNom et lePrenom
+let lePrenom = `Bill`;
+let leNom = `Boquet`;
+//TODO: Créer un tableau laPhrase et on y ajoute via push le nom, le prénom, les initiales
+let laPhrase = [];
+laPhrase.push(leNom);
+laPhrase.push(lePrenom);
+laPhrase.push(lePrenom[0]+leNom[0]);
+//TODO: afficher le tableau dans la console le nom le prénom les initiales
+console.log(laPhrase);
