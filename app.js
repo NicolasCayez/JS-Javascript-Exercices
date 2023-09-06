@@ -33,3 +33,22 @@ console.log('Bienvenue dans Javascript');
  *! Il ne faudra pas non plus compter appeler document.write() pour écrire dans le document HTML
  *! puisqu'il sera impossible de savoir à quel moment les actions seront déclenchées.
  */ 
+
+
+//  EXERCICE VARIABLES
+let nombre = 42;
+let tableau = [1,2,4,12];
+let phrase = `Coucou les loulous`;
+let objet = {
+    prenom: `Bob`,
+    nom: `L'éponge`
+}
+
+console.log(nombre);
+console.log(tableau[1]);
+console.log(phrase);
+console.log(`Salut c'est ${objet.prenom} ${objet.nom}`);
+
+
+let hello = function () { console.log(`hello world`)};
+hello();
