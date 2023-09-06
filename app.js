@@ -37,18 +37,22 @@ console.log('Bienvenue dans Javascript');
 
 //  EXERCICE VARIABLES
 let nombre = 42;
+let ilsFlottentTousEnBas = 1.25;
 let tableau = [1,2,4,12];
 let phrase = `Coucou les loulous`;
 let objet = {
     prenom: `Bob`,
     nom: `L'éponge`
 }
+let bouboule = true;
 
 console.log(nombre);
+console.log(ilsFlottentTousEnBas);
 console.log(tableau[1]);
 console.log(phrase);
 console.log(`Salut c'est ${objet.prenom} ${objet.nom}`);
+console.log(bouboule);
 
 
-let hello = function () { console.log(`hello world`)};
-hello();
+let hello = function (texte) { console.log(texte)};
+hello(`hello world`);
