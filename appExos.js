@@ -62,7 +62,7 @@ console.log(textesTab);
 //TODO Sur textesTab on va utiliser la ƒ° map(),
 //TODO dans map(), on va lui passer en param une fonction fléchée qui elle a en parametre une variable temporaire (nom de la variable au choix)
 //TODO cette fonction fléchée elle va modifier le innerHTML ou
-textesTab.map((hack) => hack.innerHTML = "<h1>Haha Hihi Hoho</h1>");
+textesTab.map((hack) => hack.innerHTML = "<h2>Haha Hihi Hoho</h2>");
 
 /**
 * **************************************
@@ -118,3 +118,53 @@ if(superCar =='BMW'){
     console.log(superCar);
 }
 console.log(superCar);
+
+/**
+* **************************************
+* 8-DOM Event Click
+* **************************************
+**/
+//TODO react clic 1
+let newH1 = document.querySelector('h1');
+
+newH1.addEventListener('click',function(){
+    this.innerHTML = ("--🥳--");
+});
+
+//TODO react clic 2
+// On pointe vers la balise a modifier
+let leH3 = document.querySelector('h3');
+
+//lien ajouter
+let add = document.querySelector('.add');
+add.addEventListener('click', function(){
+    leH3.classList.add('maClasse');
+});
+
+//lien supprimer
+let del = document.querySelector('.del');
+del.addEventListener('click', function(){
+    leH3.classList.remove('maClasse');
+});
+
+//lien toggle
+let tog = document.querySelector('.tog');
+tog.addEventListener('click', function(){
+    leH3.classList.toggle('maClasse');
+});
+
+document.body.addEventListener('click', function(event){
+    //on récupère les coordonnées
+    let x = event.clientX;
+    let y = event.clientY;
+    // on crée l'objet image
+    let image = document.createElement('img');
+    // on définit ses attributs, ici la source
+    image.src = 'https://picsum.photos/id/237/536/354';
+    //on définit les propriétés de style pour la position
+    image.style.position = 'absolute';
+    image.style.left = x+'px';
+    image.style.top = y+'px';
+    //on insère l'image
+    document.body.append(image);
+});
