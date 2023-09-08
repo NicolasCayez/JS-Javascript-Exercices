@@ -189,3 +189,262 @@ laPhrase.push(lePrenom);
 laPhrase.push(lePrenom[0]+leNom[0]);
 //TODO: afficher le tableau dans la console le nom le prénom les initiales
 console.log(laPhrase);
+
+/**
+* **************************************
+* EXERCICE FONCTIONS
+* **************************************
+*/
+
+//TODO: Créer une fontcion qui prend un nombre en paramètre
+//TODO: la donction doit afficher en console 33+ le nombre
+function plus33(n) {
+    console.log(n+33);
+}
+plus33(3);
+//TODO: créer une autre fonction qui prend 2 nombres en paramètres
+//TODO: addition des 2 nombres
+function plusPlus(x,y) {
+    console.log(x+y);
+}
+plusPlus(3,4);
+
+//TODO: Créer une fonction qui calcule la moyenne des 2 notes
+function moyenne(a=0,b=0) {
+    return (a+b)/2;
+}
+//TODO: Afficher le résultat de la console
+console.log(moyenne(2,13));
+
+//! EXO 5.1.2 : Quizz Function
+    //TODO : Pourquoi ca beug / Pourquoi ca marche pas ?
+    let something = 44;
+    function functionBugParent() {
+        let something = 9;
+        console.log(something);
+        // console.log(lesNews);
+
+
+        function functionBugEnfant() {
+            let lesNews = `il est 99h67`;
+        }
+    };
+    functionBugParent();
+    console.log(something);
+//! EXO 5.2 : La moyenne de 2 notes 
+//TODO: Créer une fonction qui calcule la moyenne de 2 notes
+//TODO: Afficher le résultat en console
+let noteSport = 8;
+let notePhilo = 2;
+let resultatMoy = moyenne2notes(notePhilo,noteSport);
+// On peut executer la ƒ° AVANT de la définir (pas d'ordre pour décrire les fonctions)
+function moyenne2notes(a,b){
+    return (a+b)/2;
+};
+console.log('La moyenne des 2 notes : ',resultatMoy);
+
+//? Fonction Anonyme ? (pas besoin de nom ?)
+//! Syntaxe ES6 Fonction fléchée (c'est beaucoup utilisé nottament dans des framework - librairies)
+let somme = function(a, b) {
+    return a + b;
+};
+//! Avant la => on a les paramètres, Après la => on a ce que ca return
+let leCalcul = (a, b) => a + b;
+console.log(leCalcul(1, 2));
+
+document.addEventListener('click',(clickEvent)=>{
+    console.log(clickEvent);
+    console.log(`Tu as clické ici : 
+    X : ${clickEvent.x} - Y : ${clickEvent.y}
+    à ce moment : ${clickEvent.timeStamp}`);
+});
+
+/**
+ * **************************************
+ * 7- Les opérateurs
+ * **************************************
+ */
+//! Les booléens : 2 états possibles TRUE ou FALSE (vrai ou faux)
+let a = 11;
+let b = 99;
+console.log("variable a:",a);
+console.log("variable b:",b);
+//! avec == on demande si a est égal à b
+console.log("c'est égal ? :",a == b);
+//!pour vérifier si a est différent de b on utilise !=
+console.log("C'est inégal ? :",a != b);
+//! Ensuite on retrouve les même opérateurs qu'en Mathématique
+//! ici on demande si a est strictement suppérieur à b
+console.log("Strictement suppérieur ? :",a > b);
+//! ici on demande si a est strictement inférieur à b
+console.log("Strictement inférieur ? :",a < b);
+//! ici on demande si a est inférieur ou égal à b
+console.log("Inférieur ou égal ? :",a <= b);
+//! ici on demande si a est suppérieur ou égal à b
+console.log("suppérieur ou égal ?:",a >= b);
+//? Attention : de base JS ne prend pas en compte le typage des variables : 
+//? ci dessous le nombre 2 est égal au caractère "2" 🤔
+console.log("le chiffre 2 = \"2\"?:",2 == "2");
+//! Pour prendre en compte le type des donnée que l'on compare, on utilise l'opérateur ===
+//! c'est l'égalité stricte
+console.log("égalité stricte ?:",2 === "2");
+//! il y a aussi l'inégalité stricte avec l'opérateur !==
+console.log("inégalité stricte ?:",2 !== "2");
+//? il existe aussi des opérateurs Logiques qui nous permet de combiner des conditions
+//? && pour dire ET
+//? || pour dire OU
+//? ! pour dire Différent de
+console.log(3==3 && 3<4);
+console.log(3==3 || 3<4);
+
+//!-------CONDITIONS / Operateur TERNAIRES-------
+// ? on combine un opérateur de comparaison et l'opérateur ? pour établir une condition qui return une chose ou une autre chose
+// ? cela permet de faire une condition if (simple) avec une syntaxe racourcie
+let whatIsYourAge = 6;
+console.log(whatIsYourAge >18 ? '🍹':'👮‍♂️');
+// Astuce pour check si une variable est définie (si ya QQchose dans son espace mémoire)
+let userPremium;
+// On check si une variable est définie la condition c'est juste uneVariable ?
+console.log(userPremium?'OK 🤙':'Not OK 👺');
+// ↑ c'est l'équivalent de ↓
+console.log(userPremium ==true?'OK 🤙':'Not OK 👺');
+// on doit lui assigner QQCHOSE
+userPremium = 'YES';
+console.log(userPremium?'OK 🤙':'Not OK 👺');
+
+/**
+ * **************************************
+ * LE DOM
+ * **************************************
+ */
+
+// ? On peut utiliser des operateur aussi pour combiner des conditions && (pour ET) || (pour OU)
+console.log(3==3&&3<4);
+let typeUtilisateur = 'Extra';
+console.log(typeUtilisateur == 'Extra' || typeUtilisateur == 'Premium');
+
+//? Une fonction type getElement pour récupérer UN élément par son ID 
+let specialP = document.getElementById('special');
+console.log(specialP);
+
+//? Une fonction type getElement pour récupérer tous les élément selon une certaine balise dans une HTMLCollection
+let tousLesP = document.getElementsByTagName('p');
+console.log('La HTMLCollection',tousLesP);
+//? Quand on a une HTMLCollection on peut accèder à un certain élément 
+console.log('le 3e <p> dans la HTMLCollection : ',tousLesP[2]);
+
+//? Une fonction type getElement pour récupérer tous les élément selon une certaine class dans une HTMLCollection
+let tousLesSuper = document.getElementsByClassName('super');
+console.log(tousLesSuper);
+console.log(tousLesSuper[1]);
+
+let tousLesSuperMaisLePremmierEnFait = document.getElementsByClassName('super')[0];
+console.log('tousLesSuperMaisLePremmierEnFait',tousLesSuperMaisLePremmierEnFait);
+
+//? Une fonction type querySelector pour récupérer UN élément (le 1er trouvé)
+let lePremierP = document.querySelector('p');
+console.log('lePremierP via querySelector : ',lePremierP);
+
+//? Une fonction type querySelector pour récupérer UN élément par son ID
+let pSpecial = document.querySelector('#special');
+console.log('pSpecial querySelector + ID',pSpecial);
+
+//? Une fonction type querySelector pour récupérer UN (le 1er trouvé) élément par sa classe
+let pSuper = document.querySelector('.super');
+console.log('pSuper querySelector + class',pSpecial);
+
+//? Une fonction type querySelector pour récupérer TOUS les élément dans une NodeList
+// let allParagraphes = document.querySelectorAll('p');
+// console.log('allParagraphes querySelector + balise',allParagraphes);
+// let allSuper = document.querySelectorAll('.super');
+// console.log('allSuper querySelector + class',allSuper);
+// console.log('allParagraphes mais on prend le 2e',allParagraphes[1]);
+
+//! Placer des elements dans une page web
+//? Une fonction type querySelector pour récupérer UN (le 1er trouvé) élément par la NodeList
+let allParagraphes = document.querySelectorAll('p');
+let laDiv = document.querySelector('.vide');
+let premierH1 = document.querySelector('h1');
+//! insertBefore, on selectionne 2 éléments pour placer l'un avant l'autre
+// document.body.insertBefore(allParagraphes[9],premierH1);
+
+laDiv.append(`Là c'est JS qui ajoute du texte dans la div`);
+// Append plutot pensé pour ajouter du contenu à la volé au format string
+// si on a crée ou séléctionné un élément que l'on veut placer : ceci peut marcher
+laDiv.append(allParagraphes[4]);
+// // Mais on a aussi la fonction appendChild;
+laDiv.appendChild(allParagraphes[0]);
+
+// //! On peut aussi supprimer un élément du DOM
+document.body.removeChild(allParagraphes[9]);
+
+//! Créer des elements de texte
+const newTxt = document.createTextNode('DU texte Youhouuuuu');
+document.body.append(newTxt); //!Créer c'est bien mais il faut placer
+
+//!Créer n'importe quel element HTML
+const newH1 = document.createElement('h1');//phase 1 creation
+// <h1></h1>
+newH1.innerText = "AZERTYUIOP";//phase2 remplissage
+// <h1>AZERTYUIOP</h1>
+newH1.style.backgroundColor = 'red';
+document.body.append(newH1);//phase 3 on place dans la page
+
+const userData = {
+    name: 'John delavega',
+    email: 'john.doe@example.com',
+    age: 25,
+    dob: '08/02/1989',
+    active: true,
+    img:'https://www.boredpanda.com/blog/wp-content/uploads/2022/06/funny-low-cost-cosplay-pics-62a744d39c80a__700.jpg'
+};
+
+// let fiche = document.querySelector('.userProfile');
+// let codeHtml = (`<img src=${userData.img}>
+//                 <br><p>${userData.name}</p>
+//                 <br><p>${userData.email}</p>
+//                 <br><p>${userData.age}</p>
+//                 <br><p>${userData.dob}</p>
+//                 <br><p>${userData.active}</p>
+//                 `);
+// fiche.innerHTML = codeHtml;
+// fiche.style.backgroundColor = 'pink';
+
+// const ficheDiv1 = fiche.createElement('div');
+// ficheDiv1.innerHTML = codeHtml;
+// document.fiche.append(ficheDiv1);
+
+// JS qui va customiser la div du profile utilisateur
+let divUser = document.querySelector('.userProfile');
+divUser.style.backgroundColor = `background-color: #4158D0`;
+divUser.style.backgroundImage = `linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%)`;
+divUser.style.color = `white`;
+divUser.style.width = '500px';
+divUser.style.margin = 'auto';
+divUser.style.padding = '2rem';
+//JS crée une image, renseigne la src , modif taille
+const imgTemplate = document.createElement('img');
+imgTemplate.src = userData.img;
+imgTemplate.style.height = '500px';
+imgTemplate.style.width = '500px';
+divUser.append(imgTemplate);
+// JS crée le titre du name
+const nameTemplate = document.createElement('h1');//phase 1 creation
+nameTemplate.innerText = userData['name'];
+divUser.append(nameTemplate);
+// JS crée le titre du email
+const emailTemplate = document.createElement('h2');//phase 1 creation
+emailTemplate.innerText = userData.email;
+divUser.append(emailTemplate);
+// JS crée le titre du age
+const ageTemplate = document.createElement('h2');//phase 1 creation
+ageTemplate.innerText = userData.age;
+divUser.append(ageTemplate);
+// JS crée le titre du dob
+const dobTemplate = document.createElement('h2');//phase 1 creation
+dobTemplate.innerText = userData.dob;
+divUser.append(dobTemplate);
+// JS crée le titre du active
+const activeTemplate = document.createElement('h2');//phase 1 creation
+activeTemplate.innerText = userData.active;
+divUser.append(activeTemplate);
