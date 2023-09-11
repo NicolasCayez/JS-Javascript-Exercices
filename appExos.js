@@ -337,29 +337,58 @@ newH1.addEventListener('click',function(){
     this.innerHTML = ("--🥳--");
 });
 
+// ! ---------------------------
+// ! CORRECTION et autres
+// * addEventListener - click
+//? Mode ƒ° => (anonyme + fléchée) 
+// let leH1 = document.querySelector('#mainTitle');
+// let selectTitle = false;    //! Un booléen pour savoir si le titre a été cliqué ou non
+// leH1.addEventListener('click',()=>{
+//     console.log('ok ca click');
+//     leH1.innerText = selectTitle ? '-- 🥳 --':'D.O.M Events'; //? condition ternaire si selectTitle est vrai alors smiley sinon dom Events
+//     selectTitle = !selectTitle; // ? à chaque click le booleen passe à son inverse (pour faire le re click)
+// });
+
 //------------------------------
 //TODO react clic 2
 // On pointe vers la balise a modifier
-let leH3 = document.querySelector('h3');
+const leTitreH3 = document.querySelector('h3');
 
 //lien ajouter
-let add = document.querySelector('.add');
+const add = document.querySelector('.add');// Ou querySelectorAll et ensuite les indices [0] puis [1] puis [2]
 add.addEventListener('click', function(){
-    leH3.classList.add('maClasse');
+    leTitreH3.classList.add('maClasse');
 });
 
 //lien supprimer
-let del = document.querySelector('.del');
+const del = document.querySelector('.del');
 del.addEventListener('click', function(){
-    leH3.classList.remove('maClasse');
+    leTitreH3.classList.remove('maClasse');
 });
 
 //lien toggle
-let tog = document.querySelector('.tog');
+const tog = document.querySelector('.tog');
 tog.addEventListener('click', function(){
-    leH3.classList.toggle('maClasse');
+    leTitreH3.classList.toggle('maClasse');
 });
 
+//------------------------------
+// ! CORRECTION
+const leTitre = document.querySelector("h1");
+const lesLiens = document.querySelectorAll("a");
+lesLiens[0].addEventListener("click", function(){
+    leTitre.classList.add("laClasse");
+    document.body.classList.add("bodyBg");
+});    
+lesLiens[1].addEventListener("click", function(){
+    leTitre.classList.remove("laClasse");
+});
+lesLiens[2].addEventListener("click", function(){
+    leTitre.classList.toggle("laClasse");
+});
+
+//------------------------------
+//TODO react clic 3
 document.body.addEventListener('click', function(event){
     //on récupère les coordonnées
     let x = event.clientX;
@@ -373,17 +402,79 @@ document.body.addEventListener('click', function(event){
     image.style.left = x+'px';
     image.style.top = y+'px';
     //on insère l'image
-    document.body.append(image);
+    // document.body.append(image); //enlevé pour les exos suivants
+});
+//------------------------------
+// ! CORRECTION
+// document.addEventListener('click', function(eventClick){
+//     console.log(eventClick);
+//     console.log('Les coord : ',eventClick.x, eventClick.y);
+//     // On Créer une image
+//     const monImg = document.createElement('img');
+//     const tailleImg = 150;
+//     // On rajoute une src à l'image
+//     monImg.setAttribute('src', `https://picsum.photos/${tailleImg}/${tailleImg}`);
+//     // On modifie le type de position de l'image
+//     monImg.style.position = 'absolute';
+//     // On modifie la position top de l'image (la division par 2 pour que l'image se créee centrée)
+//     monImg.style.top = eventClick.y - tailleImg /2 +'px';
+//     // On modifie la position left de l'image
+//     monImg.style.left = eventClick.x -tailleImg /2 +'px';
+//     //On place l'image fraichement créee dans le body de la page
+//     document.body.append(monImg);
+// });
+
+//------------------------------
+//TODO react focus / blur
+const leChamp = document.querySelectorAll('input'); // ou avec '#titleInput'
+console.log(leChamp[1]);
+
+leChamp[1].addEventListener('focus', function(focusIn){
+    console.log(focusIn);
+    leChamp[1].style.backgroundColor = "blue";
+    leChamp[1].style.color = "white";
 });
 
-// ! ---------------------------
-// ! CORRECTION et autres
-// * addEventListener - click
-//? Mode ƒ° => (anonyme + fléchée) 
-let leH1 = document.querySelector('#mainTitle');
-let selectTitle = false;    //! Un booléen pour savoir si le titre a été cliqué ou non
-leH1.addEventListener('click',()=>{
-    console.log('ok ca click');
-    leH1.innerText = selectTitle ? '-- 🥳 --':'D.O.M Events'; //? condition ternaire si selectTitle est vrai alors smiley sinon dom Events
-    selectTitle = !selectTitle; // ? à chaque click le booleen passe à son inverse (pour faire le re click)
+leChamp[1].addEventListener('blur', function(focusOut){
+    console.log(focusOut);
+    leChamp[1].style.backgroundColor = "transparent";
+    leChamp[1].style.color = "black";
 });
+
+//------------------------------
+//TODO react load
+// Sélectionner TOUTES les images dans une variable
+const lesImages = document.querySelectorAll('img');
+console.log(lesImages);
+// ensuite  utiliser Array.from( laVariableAtransformer) pour transformer cette HTMLCollection ou NodeList en Array,
+let tabImg = Array.from(lesImages);
+console.log(tabImg);
+// sur cet array utiliser map( ), pour placer un addEventListener qui réagit au « load » et qui affiche un message en console
+// Vous pouvez utiliser l’index de la fonction map( ) //pour numéroter les images
+tabImg.map(function (uneImage, index) { // uneImage est l'image en cours des images dans tabImg et le second parametre est forcement l'index
+    uneImage.addEventListener("load", function () { //pour chaque image on écopute le load
+        console.log(`Image numéro : ${index} – vient de finir de charger.`); // on fait le console avec l'index
+    });
+});
+
+//------------------------------
+//TODO react mouseleave
+// Lorsque la souris de l’utilisateur s’en va d’un élément html.
+const leTitreCache = document.querySelector('#titreCache');
+console.log(leTitreCache);
+// Dans une page web rajouter un titre (h1, h2 ou h3 au choix) il est en display none en CSS
+// Ensuite sur toute la page surveiller l’évènement mouseleave de manière à faire apparaitre
+// le titre en mettant son display en « block » (ajouter d’autre modifications du titre via js notamment au niveau du style)
+document.body.addEventListener('mouseleave', function(test){
+    console.log(test);
+    leTitreCache.style.display = "block";
+    leTitreCache.style.backgroundColor = "Chartreuse";
+    leTitreCache.style.fontWeight = "bold";
+});
+
+//------------------------------
+//TODO react scroll
+// Sur toute la page écouter l’évènement scroll, faire un console log de l’évènement ainsi que des console log pour ces variables 
+// Mettez en place une variable scrollMax, dans laquelle on soustrait à document.body.scrollHeight, la variable innerHeight,
+// Faire une variable onEstOu dans laquelle on stock un pourcentage à partir de scrollY et scrollMax
+// Puis faire en sorte d’assigner la variable onEstOu à la largeur de la div qui a la class « bar »
