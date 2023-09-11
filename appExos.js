@@ -9,8 +9,8 @@ console.log('Bienvenue dans Javascript');
 // TODO: Dans cette ƒ°, SI la moyenne est supérieure ou égale à 15 on renvoi une string (très Bien)
 // TODO: Dans cette ƒ°, SINON SI la moyenne est supérieure ou égale à 10 on renvoi une string (assez Bien)
 // TODO: Dans cette ƒ°, SINON renvoi une string (refus)
-function exo1IfElse([a,b,c]) {
-    let moyenne = (a+b+c)/3;
+function exo1IfElse(notes) {
+    let moyenne = (notes[0]+notes[1]+notes[2])/notes.length;
     if (moyenne>=15) {
         return `Ta moyenne: ${moyenne} très bien mon petit chouchou`;
     } else if (moyenne>=10) {
@@ -20,6 +20,20 @@ function exo1IfElse([a,b,c]) {
     }
 }
 console.log(exo1IfElse([15,19,8]));
+// ! CORRECTION
+function msgMentionBacOfficiel(tabNotes) {
+    let moyenneCalc = (tabNotes[0]+tabNotes[1]+tabNotes[2])/tabNotes.length;
+    console.log('la Moyenne au Bac : ',moyenneCalc);
+    if (moyenneCalc >=16) {
+        return "Tu as Gagné !"
+    } else if (moyenneCalc >=10 && moyenneCalc<16) {
+        return 'Assez Bien'
+    } else {
+        return 'YO T NUL GRO'
+    }
+};
+console.log(msgMentionBacOfficiel([13,6,3]));
+
 
 /**
 * **************************************
