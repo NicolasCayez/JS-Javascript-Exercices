@@ -333,7 +333,7 @@ console.log(superCar);
 //TODO react clic 1
 let newH1 = document.querySelector('h1');
 
-newH1.addEventListener('click',function(){
+newH1.addEventListener('click',() => {
     this.innerHTML = ("--🥳--");
 });
 
