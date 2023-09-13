@@ -224,3 +224,57 @@ const eventScroll = window.addEventListener('scroll', () => {
     bar.style.backgroundColor = "blue";
     bar.style.width = onEstOu+"%";
 });
+
+
+
+//?-----------------------------------------------------------------------------------------------
+//? Exo réagir au Clavier 1                                                                     --
+//?-----------------------------------------------------------------------------------------------
+let leTexteIci = document.querySelector('#leTexteIci');
+
+let monTxt = document.querySelector('#formMessage');
+console.log(monTxt);
+let para = document.createElement(`p`);
+
+monTxt.addEventListener('keyup', () => {
+    para.innerText = monTxt.value;
+    leTexteIci.append(para);
+});
+
+
+
+
+//?-----------------------------------------------------------------------------------------------
+//? Exo réagir au Clavier 2 et Webstorage                                                       --
+//?-----------------------------------------------------------------------------------------------
+let monBouton = document.querySelector('#formSubmitBtn');
+
+monTxt.addEventListener('keyup', () => {
+    if(monTxt.textLength >= 5) {
+        monBouton.disabled = true;
+    } else {
+        monBouton.disabled = false;
+    }
+    
+    
+    //? Exo Webstorage
+    localStorage.setItem("monSuperTexte", monTxt.value);
+});
+
+
+
+
+//?-----------------------------------------------------------------------------------------------
+//? Exo setTimeOut                                                                              --
+//?-----------------------------------------------------------------------------------------------
+setTimeout(() => {
+    let titreRetard = document.createElement('h2');
+    titreRetard.innerText = 'Coucou désolé pour le retard';
+    titreRetard.style.color = "red";
+    document.body.append(titreRetard);
+    document.body.style.backgroundColor = "green";
+}, 3000);
+
+//?-----------------------------------------------------------------------------------------------
+//? Exo setTimeOut                                                                              --
+//?-----------------------------------------------------------------------------------------------
