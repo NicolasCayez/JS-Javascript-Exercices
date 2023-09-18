@@ -7,14 +7,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
+
+    <!-- TODO Installer la librairie FontAwesome (https://fontawesome.com/) -->
+    <script src="https://kit.fontawesome.com/027f687cf4.js" crossorigin="anonymous"></script>
+
+    <!-- TODO Installer la librairie Animate on Scroll (https://github.com/michalsnik/aos) -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+
+    <!-- *** -->
     <script src="script.js" defer></script>
 </head>
 
 <body>
-    <div class="cardMeteo">
-        <h1 class="cardMeteo__titre">Météo du Jour</h1>
-        <button>Charger</button>
+    <!-- TODO Animer la div cardMeteo avec une durée de 1 seconde (soit 1000ms) -->
+    <div data-aos="fade-in">
+        <div
+        data-aos="fade-up"
+        data-aos-offset="200"
+        data-aos-delay="50"
+        data-aos-duration="1000"
+        data-aos-easing="ease-in-out"
+        data-aos-mirror="true"
+        data-aos-once="false"
+        data-aos-anchor-placement="top-center"
+        >
+        <div class="cardMeteo">
+            <h1 class="cardMeteo__titre">Météo du Jour</h1>
+    
+            <!-- TODO Placer dans le html l'icône Cloud-sun (https://fontawesome.com/icons/cloud-sun?s=solid) juste avant le bouton Charger -->
+            <i class="fa-solid fa-cloud-sun" id="icone"></i>
+            <!-- *** -->
+    
+            <button>Charger</button>
+        </div>
+        </div>
     </div>
+
+
+
+
+
 </body>
 
 </html>
