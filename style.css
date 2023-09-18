@@ -13,3 +13,9 @@
 .iciVanta{
     height: 300px;
 }
+
+/* FIREBASE */
+/*Edit*/
+#edit-user-module {
+    display: none;
+}

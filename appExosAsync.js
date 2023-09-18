@@ -248,6 +248,11 @@ monTxt.addEventListener('keyup', () => {
 //? Exo réagir au Clavier 2 et Webstorage                                                       --
 //?-----------------------------------------------------------------------------------------------
 let monBouton = document.querySelector('#formSubmitBtn');
+//? Exo Webstorage
+let rendu = document.querySelector('#leTexteIci');
+monTxt.value = localStorage.getItem("monSuperTexte");
+rendu.innerText = localStorage.getItem("monSuperTexte");
+
 
 monTxt.addEventListener('keyup', () => {
     if(monTxt.textLength >= 5) {
@@ -255,8 +260,6 @@ monTxt.addEventListener('keyup', () => {
     } else {
         monBouton.disabled = false;
     }
-    
-    
     //? Exo Webstorage
     localStorage.setItem("monSuperTexte", monTxt.value);
 });
@@ -276,5 +279,19 @@ setTimeout(() => {
 }, 3000);
 
 //?-----------------------------------------------------------------------------------------------
-//? Exo setTimeOut                                                                              --
+//? Exo Taupe départ                                                                            --
 //?-----------------------------------------------------------------------------------------------
+let taupeDepart = document.querySelector('#taupeDepart');
+taupeDepart.innerText = 'Taupe départ';
+taupeDepart.addEventListener('click', () => {
+    let i = 3;
+    let intervalle = setInterval(() => {
+        taupeDepart.innerText = i;
+        i--;
+        if (i<0){
+            taupeDepart.innerText = 'Gooooooooooooooooooooooooo';
+            clearInterval(intervalle);
+        };
+    }, 1000);
+});
+
